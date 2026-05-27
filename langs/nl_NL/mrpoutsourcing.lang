@@ -1,0 +1,63 @@
+# MRP Outsourcing - Nederlandse vertaling
+
+OutsourcingOrder=Uitbestedingsopdracht
+OutsourcedOrders=Uitbestede Opdrachten
+NewOutsourcingOrder=Nieuwe Uitbestedingsopdracht
+OutsourcingOrderPreview=Voorvertoning Uitbestedingsopdracht
+SendToSupplier=Verstuur naar leverancier
+ViewDetails=Details bekijken
+
+SendNow=Nu Verzenden
+MarkAsDone=Gereed Melden
+ManuallyMarkDone=Handmatig Gereed Melden
+CreateOutsourcingOrder=Uitbestedingsopdracht aanmaken
+Send=Verzenden
+
+StatusDraft=Concept
+StatusSent=Verzonden
+StatusConfirmed=Bevestigd
+StatusDone=Gereed
+StatusCancelled=Geannuleerd
+
+EmailSupplier=E-mail Leverancier
+ReduceComponentStock=Component-voorraad verlagen
+ReduceStockNo=Componenten blijven in onze voorraad
+ReduceStockYes=Componenten worden direct afgeschreven bij verzending
+ReduceStockHelp=Kies Ja als de componenten vanuit uw magazijn naar de leverancier gaan
+NoteForSupplier=Opmerking voor leverancier
+NoteForSupplierPlaceholder=Bijzondere instructies, kwaliteitseisen...
+DateSend=Verzonden op
+DateDone=Gereed op
+StockReduced=Voorraad verlaagd
+SupplierRef=Ref. leverancier
+
+OutsourcingOrderCreated=Uitbestedingsopdracht aangemaakt
+OutsourcingOrderSent=Uitbestedingsopdracht verzonden naar leverancier
+OutsourcingOrderDone=Opdracht gereed gemeld en MRP-order afgesloten
+PreviewNotYetSent=Opdracht nog niet verzonden
+ReviewBeforeSend=Controleer de gegevens en klik op Nu Verzenden
+StockWillBeReduced=Componenten worden afgeschreven bij verzending
+StockWillBeReducedDetail=Bij het verzenden worden de benodigde componenten direct van de voorraad afgeschreven.
+NoOutsourcingOrders=Geen uitbestedingsopdrachten gevonden
+OutsourcingDone=Uitbesteding gereed
+
+OutsourcingOrderSubject=Productie-opdracht %s
+
+OutsourcingSetup=Instellingen MRP Outsourcing
+EmailSettings=E-mail instellingen
+ImapSettings=IMAP-instellingen (inkomende mail)
+StockSettings=Voorraad instellingen
+MailFromAddress=Afzender e-mailadres
+DefaultReduceStock=Standaard voorraad verlagen
+ImapHost=IMAP-server
+ImapPort=IMAP-poort
+ImapSsl=SSL gebruiken
+ImapUser=IMAP-gebruikersnaam
+ImapPass=IMAP-wachtwoord
+ImapFolder=Map (bijv. INBOX)
+DefaultWarehouse=Standaard magazijn
+SecureTokenInfo=Beveiligingstoken
+TokenUsedForCallbacks=Dit token beveiligt de terugkoppellinks in leveranciers-e-mails
+CronSetup=Cron-taak voor inkomende mail
+ForInboundEmail=voor automatische verwerking van gereedmeldingen per e-mail
+SetupSaved=Instellingen opgeslagen
