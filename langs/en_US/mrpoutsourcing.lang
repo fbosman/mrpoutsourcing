@@ -1,0 +1,63 @@
+# MRP Outsourcing - English translation
+
+OutsourcingOrder=Outsourcing Order
+OutsourcedOrders=Outsourced Orders
+NewOutsourcingOrder=New Outsourcing Order
+OutsourcingOrderPreview=Outsourcing Order Preview
+SendToSupplier=Send to Supplier
+ViewDetails=View Details
+
+SendNow=Send Now
+MarkAsDone=Mark as Done
+ManuallyMarkDone=Manually Mark as Done
+CreateOutsourcingOrder=Create Outsourcing Order
+Send=Send
+
+StatusDraft=Draft
+StatusSent=Sent
+StatusConfirmed=Confirmed
+StatusDone=Done
+StatusCancelled=Cancelled
+
+EmailSupplier=Supplier Email
+ReduceComponentStock=Reduce Component Stock
+ReduceStockNo=Components remain in our stock
+ReduceStockYes=Components will be deducted from stock on send
+ReduceStockHelp=Choose Yes if components are physically shipped to the supplier from your warehouse
+NoteForSupplier=Note for Supplier
+NoteForSupplierPlaceholder=Special instructions, quality requirements...
+DateSend=Sent on
+DateDone=Done on
+StockReduced=Stock Reduced
+SupplierRef=Supplier Ref
+
+OutsourcingOrderCreated=Outsourcing order created
+OutsourcingOrderSent=Outsourcing order sent to supplier
+OutsourcingOrderDone=Order marked as done and MRP order closed
+PreviewNotYetSent=Order not yet sent
+ReviewBeforeSend=Review the details and click Send Now
+StockWillBeReduced=Components will be deducted from stock on send
+StockWillBeReducedDetail=On sending, the required components will be immediately deducted from inventory.
+NoOutsourcingOrders=No outsourcing orders found
+OutsourcingDone=Outsourcing done
+
+OutsourcingOrderSubject=Manufacturing Order %s
+
+OutsourcingSetup=MRP Outsourcing Setup
+EmailSettings=Email Settings
+ImapSettings=IMAP Settings (inbound mail)
+StockSettings=Stock Settings
+MailFromAddress=Sender Email Address
+DefaultReduceStock=Default Stock Reduction
+ImapHost=IMAP Server
+ImapPort=IMAP Port
+ImapSsl=Use SSL
+ImapUser=IMAP Username
+ImapPass=IMAP Password
+ImapFolder=Folder (e.g. INBOX)
+DefaultWarehouse=Default Warehouse
+SecureTokenInfo=Security Token
+TokenUsedForCallbacks=This token secures the callback links in supplier emails
+CronSetup=Cron Job for Inbound Mail
+ForInboundEmail=for automatic processing of completion notifications by email
+SetupSaved=Settings saved
