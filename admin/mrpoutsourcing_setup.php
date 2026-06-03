@@ -9,7 +9,7 @@ if (!$res && file_exists('../../../main.inc.php'))   { $res = @include '../../..
 if (!$res && file_exists('../../../../main.inc.php')){ $res = @include '../../../../main.inc.php'; }
 if (!$res) die('Include of main failed');
 
-require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
+require_once DOL_DOCUMENT_ROOT.'/product/class/html.formproduct.class.php';
 
 $langs->loadLangs(array('admin', 'mrpoutsourcing@mrpoutsourcing'));
 if (!$user->admin) accessforbidden();
@@ -93,9 +93,9 @@ function _settingRow($key, $label, $type, $placeholder = '', $options = [])
         }
         print '</select>';
     } elseif ($type === 'warehouse') {
-        require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
-        $formOther = new FormOther($db);
-        print $formOther->select_warehouse($current ?: 0, $key, '', 1);
+        require_once DOL_DOCUMENT_ROOT.'/product/class/html.formproduct.class.php';
+        $formProduct = new FormProduct($db);
+        print $formProduct->selectWarehouses($current ?: '', $key, '', 1);
     }
     print '</td><td></td></tr>';
 }
