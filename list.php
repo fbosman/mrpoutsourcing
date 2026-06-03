@@ -13,7 +13,7 @@ require_once dol_buildpath('/mrpoutsourcing/class/mrpoutsourcingorder.class.php'
 
 $langs->loadLangs(array('mrp', 'mrpoutsourcing@mrpoutsourcing'));
 
-if (!$user->rights->mrpoutsourcing->read) accessforbidden();
+if (!$user->hasRight('mrpoutsourcing', 'read')) accessforbidden();
 if (empty($conf->mrpoutsourcing->enabled)) accessforbidden();
 
 $statusFilter = GETPOST('status_filter', 'alpha');

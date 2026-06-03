@@ -45,7 +45,16 @@ OutsourcingOrderSubject=Manufacturing Order %s
 
 OutsourcingSetup=MRP Outsourcing Setup
 EmailSettings=Email Settings
+InboundMailSettings=Inbound mail (completion reports)
+MailProvider=Mail provider
+OnlyWhenProvider=Only when provider is
 ImapSettings=IMAP Settings (inbound mail)
+Office365Settings=Office365 Settings (Microsoft Graph)
+O365Tenant=Tenant ID or domain
+O365ClientId=Application (client) ID
+O365ClientSecret=Client secret
+O365Mailbox=Mailbox (email / UPN)
+O365Folder=Folder (well-known name, e.g. inbox)
 StockSettings=Stock Settings
 MailFromAddress=Sender Email Address
 DefaultReduceStock=Default Stock Reduction

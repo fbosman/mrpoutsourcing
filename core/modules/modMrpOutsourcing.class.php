@@ -29,14 +29,14 @@ class modMrpOutsourcing extends DolibarrModules
 
         $this->module_parts = array(
             'triggers' => 1,
-            'hooks'    => array('mrpindex', 'mrpcard'),
+            'hooks'    => array('mrpindex', 'mocard'),
             'models'   => 0,
             'tpl'      => 1,
         );
 
         $this->dirs = array('/mrpoutsourcing/temp');
 
-        $this->config_page_url = array('admin/mrpoutsourcing_setup.php@mrpoutsourcing');
+        $this->config_page_url = array('mrpoutsourcing_setup.php@mrpoutsourcing');
         $this->langfiles = array('mrpoutsourcing@mrpoutsourcing');
 
         $this->const = array(
@@ -56,7 +56,9 @@ class modMrpOutsourcing extends DolibarrModules
         $this->rights[$r][4] = 'read';
         $r++;
 
-        $this->rights[$r][0] = $this->numero + $r;
+        // Note: id 500101 (numero+1) is al in gebruik door module autopurchaseorder,
+        // daarom een expliciet uniek id voor dit recht.
+        $this->rights[$r][0] = 500110;
         $this->rights[$r][1] = 'Outsourcing-opdrachten aanmaken en verzenden';
         $this->rights[$r][4] = 'write';
         $r++;
@@ -84,6 +86,9 @@ class modMrpOutsourcing extends DolibarrModules
 
     public function init($options = '')
     {
+        // Maak de moduletabellen aan vanuit de sql/ map (llx_*.sql en llx_*.key.sql).
+        $this->_load_tables('/mrpoutsourcing/sql/');
+
         $sql = array();
         return $this->_init($sql, $options);
     }

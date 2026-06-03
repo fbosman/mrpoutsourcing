@@ -45,7 +45,16 @@ OutsourcingOrderSubject=Productie-opdracht %s
 
 OutsourcingSetup=Instellingen MRP Outsourcing
 EmailSettings=E-mail instellingen
+InboundMailSettings=Inkomende mail (gereedmeldingen)
+MailProvider=Mailprovider
+OnlyWhenProvider=Alleen bij provider
 ImapSettings=IMAP-instellingen (inkomende mail)
+Office365Settings=Office365-instellingen (Microsoft Graph)
+O365Tenant=Tenant-id of domein
+O365ClientId=Application (client) ID
+O365ClientSecret=Client secret
+O365Mailbox=Mailbox (e-mailadres / UPN)
+O365Folder=Map (well-known naam, bijv. inbox)
 StockSettings=Voorraad instellingen
 MailFromAddress=Afzender e-mailadres
 DefaultReduceStock=Standaard voorraad verlagen

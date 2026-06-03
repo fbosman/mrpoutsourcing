@@ -202,8 +202,9 @@ class MrpOutsourcingOrder extends CommonObject
         $mo = new Mo($this->db);
         if ($mo->fetch($this->fk_mo) > 0) {
             if ($mo->status == Mo::STATUS_INPROGRESS || $mo->status == Mo::STATUS_VALIDATED) {
-                $mo->qty_produced = $mo->qty;
-                $mo->setStatut(Mo::STATUS_PRODUCED, null, $user);
+                // 3e argument van setStatut() is het element-type (tabelnaam); leeg laten zodat
+                // $mo->table_element ('mrp_mo') wordt gebruikt. Geen $user meegeven.
+                $mo->setStatut(Mo::STATUS_PRODUCED);
             }
         }
 

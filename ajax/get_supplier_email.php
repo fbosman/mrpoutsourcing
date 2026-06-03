@@ -8,7 +8,7 @@ if (!$res && file_exists('../../main.inc.php'))    { $res = @include '../../main
 if (!$res && file_exists('../../../main.inc.php')) { $res = @include '../../../main.inc.php'; }
 if (!$res) { echo json_encode(['error' => 'main not found']); exit; }
 
-if (!$user->rights->mrpoutsourcing->read) { echo json_encode(['error' => 'forbidden']); exit; }
+if (!$user->hasRight('mrpoutsourcing', 'read')) { echo json_encode(['error' => 'forbidden']); exit; }
 
 $id = GETPOSTINT('id');
 if (!$id) { echo json_encode(['email' => '']); exit; }

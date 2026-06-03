@@ -16,7 +16,7 @@ require_once dol_buildpath('/mrpoutsourcing/class/mrpoutsourcingorder.class.php'
 
 $langs->loadLangs(array('mrp', 'mrpoutsourcing@mrpoutsourcing', 'mails'));
 
-if (!$user->rights->mrpoutsourcing->write) accessforbidden();
+if (!$user->hasRight('mrpoutsourcing', 'write')) accessforbidden();
 if (empty($conf->mrpoutsourcing->enabled)) accessforbidden();
 
 $action = GETPOST('action', 'aZ09');
@@ -70,7 +70,7 @@ if ($action === 'markdone' && $oid) {
     }
 }
 
-if ($oid && empty($action)) {
+if ($oid && in_array($action, array('', 'preview', 'markdoneform'), true)) {
     $outsource->fetch($oid);
 }
 

@@ -47,7 +47,7 @@ if ($found <= 0 || !$outsource->id) {
                     status = '".MrpOutsourcingOrder::STATUS_CONFIRMED."',
                     date_confirmed = '".$db->idate(dol_now())."',
                     callback_log = CONCAT(IFNULL(callback_log,''), '\n---\n', '".
-                        $db->escape(date('Y-m-d H:i:s').' - Bevestiging via weblink. IP: '.getUserRemoteAddress())."')
+                        $db->escape(date('Y-m-d H:i:s').' - Bevestiging via weblink. IP: '.getUserRemoteIP())."')
                     WHERE rowid = ".(int)$outsource->id;
             $db->query($sql);
             $success = true;
@@ -61,7 +61,7 @@ if ($found <= 0 || !$outsource->id) {
         }
     } elseif ($action === 'done') {
         if (in_array($outsource->status, [MrpOutsourcingOrder::STATUS_SENT, MrpOutsourcingOrder::STATUS_CONFIRMED])) {
-            $result = $outsource->markAsDone($userSystem, $supplierRef, 'Gereedmelding via weblink. IP: '.getUserRemoteAddress());
+            $result = $outsource->markAsDone($userSystem, $supplierRef, 'Gereedmelding via weblink. IP: '.getUserRemoteIP());
             if ($result > 0) {
                 $success = true;
                 $message = 'Uw gereedmelding voor opdracht <strong>'.dol_htmlentities($moRef).'</strong> is ontvangen. De productie-opdracht is gesloten.';

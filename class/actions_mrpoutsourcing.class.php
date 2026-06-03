@@ -1,9 +1,12 @@
 <?php
 /**
- * Hook: Adds outsourcing button and status indicator to MRP MO card
+ * Hook handler: adds outsourcing button and status indicator to MRP MO card.
+ *
+ * Loaded by Dolibarr's hookmanager from /mrpoutsourcing/class/actions_mrpoutsourcing.class.php
+ * (file name and class name must follow the actions_<module> / Actions<Module> convention).
  */
 
-class ActionsHookMrpOutsourcing
+class ActionsMrpoutsourcing
 {
     public $results = array();
     public $resprints;
@@ -13,9 +16,9 @@ class ActionsHookMrpOutsourcing
     {
         global $conf, $user, $langs, $db;
 
-        if (!in_array('mrpcard', explode(':', $parameters['currentcontext']))) return 0;
+        if (!in_array('mocard', explode(':', $parameters['currentcontext']))) return 0;
         if (empty($conf->mrpoutsourcing->enabled)) return 0;
-        if (!$user->rights->mrpoutsourcing->write) return 0;
+        if (!$user->hasRight('mrpoutsourcing', 'write')) return 0;
         if ($object->element !== 'mo') return 0;
 
         $langs->load('mrpoutsourcing@mrpoutsourcing');

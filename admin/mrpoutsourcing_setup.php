@@ -21,12 +21,18 @@ if ($action === 'setvalue' && $_POST) {
     $settings = [
         'MRPOUTSOURCING_MAIL_FROM',
         'MRPOUTSOURCING_DEFAULT_REDUCE_STOCK',
+        'MRPOUTSOURCING_MAIL_PROVIDER',
         'MRPOUTSOURCING_IMAP_HOST',
         'MRPOUTSOURCING_IMAP_PORT',
         'MRPOUTSOURCING_IMAP_USER',
         'MRPOUTSOURCING_IMAP_PASS',
         'MRPOUTSOURCING_IMAP_FOLDER',
         'MRPOUTSOURCING_IMAP_SSL',
+        'MRPOUTSOURCING_O365_TENANT',
+        'MRPOUTSOURCING_O365_CLIENT_ID',
+        'MRPOUTSOURCING_O365_CLIENT_SECRET',
+        'MRPOUTSOURCING_O365_MAILBOX',
+        'MRPOUTSOURCING_O365_FOLDER',
         'MRPOUTSOURCING_DEFAULT_WAREHOUSE',
     ];
     foreach ($settings as $key) {
@@ -47,13 +53,23 @@ print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('EmailSettings').
 _settingRow('MRPOUTSOURCING_MAIL_FROM',            $langs->trans('MailFromAddress'),    'text',   'productie@mijnbedrijf.nl');
 _settingRow('MRPOUTSOURCING_DEFAULT_REDUCE_STOCK', $langs->trans('DefaultReduceStock'), 'select', '', ['0' => 'Nee', '1' => 'Ja']);
 
-print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('ImapSettings').'</th></tr>';
+print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('InboundMailSettings').'</th></tr>';
+_settingRow('MRPOUTSOURCING_MAIL_PROVIDER', $langs->trans('MailProvider'), 'select', '', ['imap' => 'IMAP', 'office365' => 'Office365 (Microsoft Graph)']);
+
+print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('ImapSettings').' &mdash; <span class="opacitymedium small">'.$langs->trans('OnlyWhenProvider').' IMAP</span></th></tr>';
 _settingRow('MRPOUTSOURCING_IMAP_HOST',   $langs->trans('ImapHost'),   'text',     'mail.mijnbedrijf.nl');
 _settingRow('MRPOUTSOURCING_IMAP_PORT',   $langs->trans('ImapPort'),   'text',     '993');
 _settingRow('MRPOUTSOURCING_IMAP_SSL',    $langs->trans('ImapSsl'),    'select',   '', ['1' => 'Ja', '0' => 'Nee']);
 _settingRow('MRPOUTSOURCING_IMAP_USER',   $langs->trans('ImapUser'),   'text',     'productie@mijnbedrijf.nl');
 _settingRow('MRPOUTSOURCING_IMAP_PASS',   $langs->trans('ImapPass'),   'password', '');
 _settingRow('MRPOUTSOURCING_IMAP_FOLDER', $langs->trans('ImapFolder'), 'text',     'INBOX');
+
+print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('Office365Settings').' &mdash; <span class="opacitymedium small">'.$langs->trans('OnlyWhenProvider').' Office365</span></th></tr>';
+_settingRow('MRPOUTSOURCING_O365_TENANT',        $langs->trans('O365Tenant'),       'text',     'bedrijf.onmicrosoft.com');
+_settingRow('MRPOUTSOURCING_O365_CLIENT_ID',     $langs->trans('O365ClientId'),     'text',     '00000000-0000-0000-0000-000000000000');
+_settingRow('MRPOUTSOURCING_O365_CLIENT_SECRET', $langs->trans('O365ClientSecret'), 'password', '');
+_settingRow('MRPOUTSOURCING_O365_MAILBOX',       $langs->trans('O365Mailbox'),      'text',     'productie@mijnbedrijf.nl');
+_settingRow('MRPOUTSOURCING_O365_FOLDER',        $langs->trans('O365Folder'),       'text',     'inbox');
 
 print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('StockSettings').'</th></tr>';
 _settingRow('MRPOUTSOURCING_DEFAULT_WAREHOUSE', $langs->trans('DefaultWarehouse'), 'warehouse', '');
