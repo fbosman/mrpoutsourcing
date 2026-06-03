@@ -36,7 +36,7 @@ class modMrpOutsourcing extends DolibarrModules
 
         $this->dirs = array('/mrpoutsourcing/temp');
 
-        $this->config_page_url = array('mrpoutsourcing_setup.php@mrpoutsourcing');
+        $this->config_page_url = array('admin/mrpoutsourcing_setup.php@mrpoutsourcing');
         $this->langfiles = array('mrpoutsourcing@mrpoutsourcing');
 
         $this->const = array(
