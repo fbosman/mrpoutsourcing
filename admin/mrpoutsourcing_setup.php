@@ -9,6 +9,8 @@ if (!$res && file_exists('../../../main.inc.php'))   { $res = @include '../../..
 if (!$res && file_exists('../../../../main.inc.php')){ $res = @include '../../../../main.inc.php'; }
 if (!$res) die('Include of main failed');
 
+require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
+
 $langs->loadLangs(array('admin', 'mrpoutsourcing@mrpoutsourcing'));
 if (!$user->admin) accessforbidden();
 
@@ -41,16 +43,16 @@ print '<input type="hidden" name="action" value="setvalue">';
 print '<table class="noborder centpercent">';
 
 print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('EmailSettings').'</th></tr>';
-_settingRow('MRPOUTSOURCING_MAIL_FROM',            $langs->trans('MailFromAddress'),     'text', 'productie@mijnbedrijf.nl');
-_settingRow('MRPOUTSOURCING_DEFAULT_REDUCE_STOCK', $langs->trans('DefaultReduceStock'),  'select', '', ['0' => 'Nee', '1' => 'Ja']);
+_settingRow('MRPOUTSOURCING_MAIL_FROM',            $langs->trans('MailFromAddress'),    'text',   'productie@mijnbedrijf.nl');
+_settingRow('MRPOUTSOURCING_DEFAULT_REDUCE_STOCK', $langs->trans('DefaultReduceStock'), 'select', '', ['0' => 'Nee', '1' => 'Ja']);
 
 print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('ImapSettings').'</th></tr>';
-_settingRow('MRPOUTSOURCING_IMAP_HOST',   $langs->trans('ImapHost'),   'text',   'mail.mijnbedrijf.nl');
-_settingRow('MRPOUTSOURCING_IMAP_PORT',   $langs->trans('ImapPort'),   'text',   '993');
-_settingRow('MRPOUTSOURCING_IMAP_SSL',    $langs->trans('ImapSsl'),    'select', '', ['1' => 'Ja', '0' => 'Nee']);
-_settingRow('MRPOUTSOURCING_IMAP_USER',   $langs->trans('ImapUser'),   'text',   'productie@mijnbedrijf.nl');
+_settingRow('MRPOUTSOURCING_IMAP_HOST',   $langs->trans('ImapHost'),   'text',     'mail.mijnbedrijf.nl');
+_settingRow('MRPOUTSOURCING_IMAP_PORT',   $langs->trans('ImapPort'),   'text',     '993');
+_settingRow('MRPOUTSOURCING_IMAP_SSL',    $langs->trans('ImapSsl'),    'select',   '', ['1' => 'Ja', '0' => 'Nee']);
+_settingRow('MRPOUTSOURCING_IMAP_USER',   $langs->trans('ImapUser'),   'text',     'productie@mijnbedrijf.nl');
 _settingRow('MRPOUTSOURCING_IMAP_PASS',   $langs->trans('ImapPass'),   'password', '');
-_settingRow('MRPOUTSOURCING_IMAP_FOLDER', $langs->trans('ImapFolder'), 'text',   'INBOX');
+_settingRow('MRPOUTSOURCING_IMAP_FOLDER', $langs->trans('ImapFolder'), 'text',     'INBOX');
 
 print '<tr class="liste_titre"><th colspan="3">'.$langs->trans('StockSettings').'</th></tr>';
 _settingRow('MRPOUTSOURCING_DEFAULT_WAREHOUSE', $langs->trans('DefaultWarehouse'), 'warehouse', '');
@@ -91,8 +93,9 @@ function _settingRow($key, $label, $type, $placeholder = '', $options = [])
         }
         print '</select>';
     } elseif ($type === 'warehouse') {
-        $form = new Form($db);
-        print $form->select_entrepots($current ?: 0, $key, '', 1);
+        require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
+        $formOther = new FormOther($db);
+        print $formOther->select_warehouse($current ?: 0, $key, '', 1);
     }
     print '</td><td></td></tr>';
 }
