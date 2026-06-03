@@ -67,6 +67,24 @@ class modMrpOutsourcing extends DolibarrModules
         $this->rights[$r][1] = 'Outsourcing-opdrachten beheren en gereed melden';
         $this->rights[$r][4] = 'manage';
 
+        // Cron jobs
+        $this->cronjobs = array(
+            0 => array(
+                'label'         => 'Automatische voorraad-aanvulling (maak MO\'s)',
+                'jobtype'       => 'method',
+                'class'         => '/mrpoutsourcing/class/MrpAutoReplenish.class.php',
+                'objectname'    => 'MrpAutoReplenish',
+                'method'        => 'createReplenishmentMos',
+                'parameters'    => '1, 0, 0', // autoValidate=1, roundToBomQty=0, fk_warehouse=0
+                'comment'       => 'Scant maakproducten met gevalideerde BOM en maakt MO\'s aan waar voorraad < gewenste voorraad.',
+                'frequency'     => 1,
+                'unitfrequency' => 86400, // dagelijks
+                'status'        => 0,     // standaard uitgeschakeld; activeer handmatig in Setup > Geplande taken
+                'test'          => '$conf->mrpoutsourcing->enabled',
+                'priority'      => 50,
+            ),
+        );
+
         $this->menus = array();
         $this->menus[0] = array(
             'fk_menu'  => 'fk_mainmenu=mrp',
