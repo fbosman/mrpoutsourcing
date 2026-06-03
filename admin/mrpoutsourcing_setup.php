@@ -9,6 +9,7 @@ if (!$res && file_exists('../../../main.inc.php'))   { $res = @include '../../..
 if (!$res && file_exists('../../../../main.inc.php')){ $res = @include '../../../../main.inc.php'; }
 if (!$res) die('Include of main failed');
 
+require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/product/class/html.formproduct.class.php';
 
 $langs->loadLangs(array('admin', 'mrpoutsourcing@mrpoutsourcing'));
@@ -93,7 +94,8 @@ function _settingRow($key, $label, $type, $placeholder = '', $options = [])
         }
         print '</select>';
     } elseif ($type === 'warehouse') {
-        require_once DOL_DOCUMENT_ROOT.'/product/class/html.formproduct.class.php';
+        require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
+require_once DOL_DOCUMENT_ROOT.'/product/class/html.formproduct.class.php';
         $formProduct = new FormProduct($db);
         print $formProduct->selectWarehouses($current ?: '', $key, '', 1);
     }
